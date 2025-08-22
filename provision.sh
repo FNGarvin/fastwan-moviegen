@@ -13,6 +13,15 @@ cd /workspace/madapps/ComfyUI/custom_nodes
 git clone https://github.com/FNGarvin/fastwan-moviegen.git
 #activate venv and install xformers
 source /workspace/madapps/ComfyUI/.venv/bin/activate
-pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu128
-#restart ComfyUI using its original launch params
-ps aux | grep 'python.*main.py' | grep -v grep | awk '{printf "kill %s; nohup %s >/dev/null 2>&1 &", $2, substr($0, index($0, $11))}' | bash
+# Get the CUDA version from nvidia-smi
+cuda_version=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | awk -F'.' '{print $1"."$2}')
+# Check for CUDA 12.9 or other versions and install accordingly
+if [ "$cuda_version" = "12.9" ]; then
+    pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu129
+elif [ "$cuda_version" = "12.8" ]; then
+    pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu128
+fi
+#restart ComfyUI so it uses xformers
+pkill -f "python.*main.py" || true
+cd /workspace/madapps/ComfyUI/
+nohup python main.py --listen 0.0.0.0 --port 8188 >/dev/null 2>&1 &
