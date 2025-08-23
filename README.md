@@ -14,17 +14,17 @@ This project is intended to facilitate easily firing off test renders using the 
 
     * **For 16GB+ GPUs (Original FP16 Model):**
         ```bash
-        curl -s [https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision.sh](https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision.sh) | bash
+        curl -s https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision.sh | bash
         ```
 
     * **For 10GB/12GB GPUs (Quantized GGUF Q6 Model):**
         ```bash
-        curl -s [https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision10GB.sh](https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision10GB.sh) | bash
+        curl -s https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision10GB.sh | bash
         ```
 
     * **For 8GB GPUs (Quantized GGUF Q3 Model):**
         ```bash
-        curl -s [https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision8GB.sh](https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision8GB.sh) | bash
+        curl -s https://raw.githubusercontent.com/FNGarvin/fastwan-moviegen/main/provision8GB.sh | bash
         ```
 
 3.  Open ComfyUI and load the workflow that corresponds to your setup (found in the "Load Workflow" menu).
