@@ -2,13 +2,13 @@
 
 **Provisioning Script and Simple Test to Work the MovieGen Prompts Using FastWan**
 
-This project is intended to facilitate easily firing off test renders using the FastWan model across a range of GPU capacities. It uses demo prompts from MovieGenBench and Wan2.2-Lightning on the `madiator2011/better-comfyui:slim-5090` container image.
+This project is intended to facilitate easily firing off test renders using the FastWan model across a range of GPU capacities. It uses demo prompts from MovieGenBench and Wan2.2-Lightning on the `madiator2011/better-comfyui:slim-5090` container image (aka comfyslim template on Runpod).
 
 ---
 
 ### How to Use
 
-1.  Start the container and open a shell using `zasper`/`ssh`/`exec -it bash`/whatever.
+1.  Start the container, wait for it to fully deploy (wait for it to start Comfy), and open a shell using `zasper`/`ssh`/`exec -it bash`/whatever.
 
 2.  Choose the provisioning script that matches your GPU's VRAM and run the corresponding command.
 
@@ -29,7 +29,7 @@ This project is intended to facilitate easily firing off test renders using the 
 
 3.  Open ComfyUI and load the workflow that corresponds to your setup (found in the "Load Workflow" menu).
 
-    * `FastWanMovieGen.json`: Queues a large batch of demo prompts using the full FP16 model.
+    * `FastWanMovieGen.json`: Queues a large batch of demo prompts using the full FP16 model.  Recommend you also open the FastWan-Simple workflow so you can better track the process of working through the queue.
     * `FastWan-Simple.json`: A simple template for testing individual prompts with the full FP16 model.
     * `FastWan-GGUF.json`: A template for low-VRAM GPUs. **Important:** After loading, you must click the GGUF Loader node and **select the `.gguf` model file** your provisioning script downloaded from the dropdown menu.
 
