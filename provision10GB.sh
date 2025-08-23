@@ -14,7 +14,7 @@
 
 # --- Configuration ---
 # Define base paths to avoid using 'cd'. This makes the script more robust.
-readonly COMFYUI_DIR="/workspace/madapps/ComFYUI"
+readonly COMFYUI_DIR="/workspace/madapps/ComfyUI"
 readonly VENV_PATH="${COMFYUI_DIR}/.venv/bin/activate"
 
 # --- Dependencies ---
