@@ -46,11 +46,11 @@ pip3 install --upgrade gguf
 
 # Dynamically detect the CUDA version PyTorch was built against.
 # It gets the version (e.g., "12.1"), removes the dot ("121"), and creates the wheel name ("cu121").
-readonly CUDA_VERSION_STR=$(python3 -c 'import torch; print(torch.version.cuda)')
-readonly CU_WHL_VERSION="cu$(echo "${CUDA_VERSION_STR}" | tr -d '.')"
-echo "INFO: Detected PyTorch CUDA version ${CUDA_VERSION_STR}."
-echo "INFO: Attempting to install xformers for ${CU_WHL_VERSION}..."
-pip3 install -U xformers --index-url "https://download.pytorch.org/whl/${CU_WHL_VERSION}"
+#readonly CUDA_VERSION_STR=$(python3 -c 'import torch; print(torch.version.cuda)')
+#readonly CU_WHL_VERSION="cu$(echo "${CUDA_VERSION_STR}" | tr -d '.')"
+#echo "INFO: Detected PyTorch CUDA version ${CUDA_VERSION_STR}."
+#echo "INFO: Attempting to install xformers for ${CU_WHL_VERSION}..."
+#pip3 install -U xformers --index-url "https://download.pytorch.org/whl/${CU_WHL_VERSION}"
 
 # --- Restart ComfyUI Service ---
 echo "INFO: Restarting ComfyUI service..."
